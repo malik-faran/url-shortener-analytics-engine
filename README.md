@@ -339,7 +339,7 @@ cp docs/ci.yml.example .github/workflows/ci.yml
 It runs on every push and pull request to `main`/`master`:
 
 - **Backend tests** — `npm ci` + Jest suite (no external services required).
-- **Frontend build** — `npm ci` + `vite build`.
+- **Frontend build** — `npm install` + `vite build`.
 - **Compose validation** — `docker compose config`.
 
 ---

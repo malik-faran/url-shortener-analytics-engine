@@ -1,0 +1,215 @@
+{
+  "urls": {
+    "0000001": {
+      "originalUrl": "https://www.example.com",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.365Z"
+    },
+    "0000002": {
+      "originalUrl": "https://www.example.com",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.382Z"
+    },
+    "0000003": {
+      "originalUrl": "https://example.com/0",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.395Z"
+    },
+    "0000004": {
+      "originalUrl": "https://example.com/1",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.400Z"
+    },
+    "0000005": {
+      "originalUrl": "https://example.com/2",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.404Z"
+    },
+    "0000006": {
+      "originalUrl": "https://example.com/3",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.409Z"
+    },
+    "0000007": {
+      "originalUrl": "https://example.com/4",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.415Z"
+    },
+    "0000008": {
+      "originalUrl": "https://example.com/5",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.420Z"
+    },
+    "0000009": {
+      "originalUrl": "https://example.com/6",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.425Z"
+    },
+    "000000a": {
+      "originalUrl": "https://example.com/7",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.430Z"
+    },
+    "000000b": {
+      "originalUrl": "https://example.com/8",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.435Z"
+    },
+    "000000c": {
+      "originalUrl": "https://example.com/9",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.442Z"
+    },
+    "000000d": {
+      "originalUrl": "https://example.com/10",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.448Z"
+    },
+    "000000e": {
+      "originalUrl": "https://example.com/11",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.454Z"
+    },
+    "000000f": {
+      "originalUrl": "https://example.com/12",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.460Z"
+    },
+    "000000g": {
+      "originalUrl": "https://example.com/13",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.466Z"
+    },
+    "000000h": {
+      "originalUrl": "https://example.com/14",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.473Z"
+    },
+    "000000i": {
+      "originalUrl": "https://example.com/15",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.478Z"
+    },
+    "000000j": {
+      "originalUrl": "https://example.com/16",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.482Z"
+    },
+    "000000k": {
+      "originalUrl": "https://example.com/17",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.487Z"
+    },
+    "000000l": {
+      "originalUrl": "https://example.com/18",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.492Z"
+    },
+    "000000m": {
+      "originalUrl": "https://example.com/19",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.496Z"
+    },
+    "000000n": {
+      "originalUrl": "https://example.com/20",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.502Z"
+    },
+    "000000o": {
+      "originalUrl": "https://example.com/21",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.510Z"
+    },
+    "000000p": {
+      "originalUrl": "https://example.com/22",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.516Z"
+    },
+    "000000q": {
+      "originalUrl": "https://example.com/23",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.522Z"
+    },
+    "000000r": {
+      "originalUrl": "https://example.com/24",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.526Z"
+    },
+    "000000s": {
+      "originalUrl": "https://example.com/25",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.531Z"
+    },
+    "000000t": {
+      "originalUrl": "https://example.com/26",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.536Z"
+    },
+    "000000u": {
+      "originalUrl": "https://example.com/27",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.542Z"
+    },
+    "000000v": {
+      "originalUrl": "https://example.com/28",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.547Z"
+    },
+    "000000w": {
+      "originalUrl": "https://example.com/29",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.555Z"
+    },
+    "000000x": {
+      "originalUrl": "https://example.com/too-many",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.558Z"
+    },
+    "000000y": {
+      "originalUrl": "https://www.example.com",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:28:59.585Z"
+    },
+    "0000ko1": {
+      "originalUrl": "https://www.example.com",
+      "customAlias": null,
+      "expiresInHours": null,
+      "createdAt": "2026-11-18T22:31:18.369Z"
+    }
+  },
+  "clickEvents": []
+}

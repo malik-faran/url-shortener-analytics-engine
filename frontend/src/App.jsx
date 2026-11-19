@@ -38,6 +38,12 @@ import {
 
 const API_BASE = (import.meta.env.VITE_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
 const PIE_COLORS = ["#3b82f6", "#22c55e", "#f59e0b", "#a855f7", "#ef4444", "#06b6d4"];
+const CHART_TOOLTIP = {
+  background: "#ffffff",
+  border: "1px solid #e5e7eb",
+  borderRadius: 8,
+  color: "#111827",
+};
 
 const EXPIRY_OPTIONS = [
   { label: "Never expires", value: "Never" },
@@ -197,19 +203,19 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="sticky top-0 z-10 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <span className="rounded-lg bg-blue-600 p-2">
+            <span className="rounded-lg bg-blue-600 p-2 text-white">
               <Link2 className="h-5 w-5" />
             </span>
             <div>
-              <h1 className="text-lg font-semibold leading-tight">URL Shortener</h1>
-              <p className="text-xs text-slate-400">Real-time analytics engine</p>
+              <h1 className="text-lg font-semibold leading-tight text-gray-900">URL Shortener</h1>
+              <p className="text-xs text-gray-500">Real-time analytics engine</p>
             </div>
           </div>
-          <span className="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-400">
+          <span className="rounded-full border border-gray-300 px-3 py-1 text-xs text-gray-500">
             v1.0.0
           </span>
         </div>
@@ -217,7 +223,7 @@ export default function App() {
 
       <main className="mx-auto max-w-7xl space-y-6 p-4">
         {error && (
-          <div className="flex items-start gap-3 rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">
+          <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
             <span className="flex-1">{error}</span>
             <button onClick={() => setError("")} aria-label="Dismiss error">
@@ -227,11 +233,11 @@ export default function App() {
         )}
 
         {/* Shortener form */}
-        <section className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
-          <h2 className="mb-4 text-base font-semibold">Shorten a URL</h2>
+        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-gray-900">Shorten a URL</h2>
           <form onSubmit={handleCreate} className="space-y-4">
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="originalUrl">
+              <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="originalUrl">
                 Original URL
               </label>
               <input
@@ -241,13 +247,13 @@ export default function App() {
                 value={originalUrl}
                 onChange={(event) => setOriginalUrl(event.target.value)}
                 placeholder="https://www.example.com/some/long/path"
-                className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm placeholder:text-slate-500 focus:border-blue-500 focus:outline-none"
+                className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="customAlias">
+                <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="customAlias">
                   Custom alias (optional)
                 </label>
                 <input
@@ -256,19 +262,19 @@ export default function App() {
                   value={customAlias}
                   onChange={(event) => setCustomAlias(event.target.value)}
                   placeholder="my-custom-link"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm placeholder:text-slate-500 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="expiry">
+                <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="expiry">
                   Expiration
                 </label>
                 <select
                   id="expiry"
                   value={expiresInHours}
                   onChange={(event) => setExpiresInHours(event.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
                 >
                   {EXPIRY_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -292,13 +298,13 @@ export default function App() {
           </form>
 
           {created && (
-            <div className="mt-5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4">
-              <p className="text-sm font-medium text-emerald-200">Short link created</p>
+            <div className="mt-5 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+              <p className="text-sm font-medium text-emerald-800">Short link created</p>
               <div className="mt-2 flex flex-col gap-2 sm:flex-row">
                 <input
                   readOnly
                   value={created.shortUrl}
-                  className="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 font-mono text-sm"
+                  className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-gray-900"
                 />
                 <button
                   onClick={() => handleCopy(created.shortUrl)}
@@ -311,7 +317,7 @@ export default function App() {
                   href={created.shortUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-slate-600 px-4 py-2 text-sm hover:border-slate-400"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-gray-400 hover:text-gray-900"
                 >
                   <ExternalLink className="h-4 w-4" /> Open
                 </a>
@@ -328,7 +334,7 @@ export default function App() {
             icon={<Gauge className="h-4 w-4" />}
             label="Cache hit ratio"
             value={health ? `${health.cacheHitRatio}%` : "—"}
-            accent="text-blue-400"
+            accent="text-blue-600"
           />
           <KpiCard
             icon={<Database className="h-4 w-4" />}
@@ -340,15 +346,15 @@ export default function App() {
 
         {/* Analytics */}
         {analyticsFor && (
-          <section className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <h2 className="flex items-center gap-2 text-base font-semibold">
-                  <BarChart3 className="h-4 w-4 text-blue-400" />
+                <h2 className="flex items-center gap-2 text-base font-semibold text-gray-900">
+                  <BarChart3 className="h-4 w-4 text-blue-600" />
                   Analytics for /{analyticsFor}
                 </h2>
                 {analytics && (
-                  <p className="mt-1 text-xs text-slate-400">
+                  <p className="mt-1 text-xs text-gray-500">
                     {analytics.totalClicks} total clicks · {truncate(analytics.originalUrl, 70)}
                   </p>
                 )}
@@ -358,7 +364,7 @@ export default function App() {
                   setAnalyticsFor(null);
                   setAnalytics(null);
                 }}
-                className="rounded-lg border border-slate-700 p-2 text-slate-400 hover:text-slate-100"
+                className="rounded-lg border border-gray-300 p-2 text-gray-500 hover:text-gray-900"
                 aria-label="Close analytics"
               >
                 <X className="h-4 w-4" />
@@ -366,7 +372,7 @@ export default function App() {
             </div>
 
             {analyticsLoading && (
-              <div className="flex items-center gap-2 text-sm text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-gray-500">
                 <Loader2 className="h-4 w-4 animate-spin" /> Loading analytics…
               </div>
             )}
@@ -374,27 +380,25 @@ export default function App() {
             {analytics && !analyticsLoading && (
               <div className="space-y-6">
                 {analytics.clicksByHour.length === 0 ? (
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-gray-500">
                     No clicks recorded yet. Open the short link to generate data.
                   </p>
                 ) : (
                   <div>
-                    <h3 className="mb-2 text-sm font-medium text-slate-300">Clicks over time</h3>
+                    <h3 className="mb-2 text-sm font-medium text-gray-700">Clicks over time</h3>
                     <div className="h-64 w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={analytics.clicksByHour}>
                           <defs>
                             <linearGradient id="clicks" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.7} />
+                              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.5} />
                               <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                             </linearGradient>
                           </defs>
-                          <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                          <XAxis dataKey="timestamp" tick={{ fontSize: 11, fill: "#94a3b8" }} />
-                          <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#94a3b8" }} />
-                          <Tooltip
-                            contentStyle={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8 }}
-                          />
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                          <XAxis dataKey="timestamp" tick={{ fontSize: 11, fill: "#6b7280" }} />
+                          <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#6b7280" }} />
+                          <Tooltip contentStyle={CHART_TOOLTIP} />
                           <Area
                             type="monotone"
                             dataKey="clicks"
@@ -419,20 +423,20 @@ export default function App() {
         )}
 
         {/* Links table */}
-        <section className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-          <h2 className="mb-4 text-base font-semibold">Managed links</h2>
+        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-gray-900">Managed links</h2>
 
           {loadingLinks ? (
-            <p className="flex items-center gap-2 text-sm text-slate-400">
+            <p className="flex items-center gap-2 text-sm text-gray-500">
               <Loader2 className="h-4 w-4 animate-spin" /> Loading links…
             </p>
           ) : links.length === 0 ? (
-            <p className="text-sm text-slate-400">No links yet. Create your first short URL above.</p>
+            <p className="text-sm text-gray-500">No links yet. Create your first short URL above.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-800 text-left text-xs uppercase tracking-wider text-slate-400">
+                  <tr className="border-b border-gray-200 text-left text-xs uppercase tracking-wider text-gray-500">
                     <th className="px-2 py-3 font-medium">Short code</th>
                     <th className="px-2 py-3 font-medium">Original URL</th>
                     <th className="px-2 py-3 text-center font-medium">Clicks</th>
@@ -442,20 +446,20 @@ export default function App() {
                 </thead>
                 <tbody>
                   {links.map((link) => (
-                    <tr key={link.shortCode} className="border-b border-slate-800/70 hover:bg-slate-800/40">
-                      <td className="px-2 py-3 font-mono text-cyan-400">/{link.shortCode}</td>
-                      <td className="max-w-xs px-2 py-3 text-slate-300" title={link.originalUrl}>
+                    <tr key={link.shortCode} className="border-b border-gray-100 hover:bg-gray-50">
+                      <td className="px-2 py-3 font-mono text-blue-600">/{link.shortCode}</td>
+                      <td className="max-w-xs px-2 py-3 text-gray-700" title={link.originalUrl}>
                         {truncate(link.originalUrl, 48)}
                       </td>
-                      <td className="px-2 py-3 text-center">{link.clickCount || 0}</td>
-                      <td className="px-2 py-3 text-center text-slate-400">
+                      <td className="px-2 py-3 text-center text-gray-900">{link.clickCount || 0}</td>
+                      <td className="px-2 py-3 text-center text-gray-500">
                         {link.expiresAt ? `${link.expiresInHours}h left` : "Never"}
                       </td>
                       <td className="px-2 py-3">
                         <div className="flex items-center justify-end gap-3">
                           <button
                             onClick={() => handleCopy(shortUrlFor(link.shortCode))}
-                            className="text-slate-400 hover:text-slate-100"
+                            className="text-gray-400 hover:text-gray-700"
                             title="Copy short link"
                           >
                             {copied === shortUrlFor(link.shortCode) ? (
@@ -466,21 +470,21 @@ export default function App() {
                           </button>
                           <button
                             onClick={() => window.open(shortUrlFor(link.shortCode), "_blank", "noreferrer")}
-                            className="text-blue-400 hover:text-blue-300"
+                            className="text-blue-600 hover:text-blue-500"
                             title="Open short link"
                           >
                             <ExternalLink className="h-4 w-4" />
                           </button>
                           <button
                             onClick={() => handleOpenAnalytics(link.shortCode)}
-                            className="text-purple-400 hover:text-purple-300"
+                            className="text-purple-600 hover:text-purple-500"
                             title="View analytics"
                           >
                             <BarChart3 className="h-4 w-4" />
                           </button>
                           <button
                             onClick={() => handleDelete(link.shortCode)}
-                            className="text-red-400 hover:text-red-300"
+                            className="text-red-600 hover:text-red-500"
                             title="Delete link"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -499,10 +503,10 @@ export default function App() {
   );
 }
 
-function KpiCard({ icon, label, value, accent = "text-slate-100", small = false }) {
+function KpiCard({ icon, label, value, accent = "text-gray-900", small = false }) {
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-      <p className="mb-2 flex items-center gap-2 text-xs uppercase tracking-wider text-slate-400">
+    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+      <p className="mb-2 flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500">
         {icon}
         {label}
       </p>
@@ -517,7 +521,7 @@ function BreakdownPie({ title, data }) {
   }
   return (
     <div>
-      <h3 className="mb-2 text-sm font-medium text-slate-300">{title}</h3>
+      <h3 className="mb-2 text-sm font-medium text-gray-700">{title}</h3>
       <div className="h-56 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
@@ -526,9 +530,7 @@ function BreakdownPie({ title, data }) {
                 <Cell key={entry.name} fill={PIE_COLORS[index % PIE_COLORS.length]} />
               ))}
             </Pie>
-            <Tooltip
-              contentStyle={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8 }}
-            />
+            <Tooltip contentStyle={CHART_TOOLTIP} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
           </PieChart>
         </ResponsiveContainer>
@@ -543,16 +545,14 @@ function BreakdownBars({ title, data }) {
   }
   return (
     <div>
-      <h3 className="mb-2 text-sm font-medium text-slate-300">{title}</h3>
+      <h3 className="mb-2 text-sm font-medium text-gray-700">{title}</h3>
       <div className="h-56 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-            <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#94a3b8" }} />
-            <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#94a3b8" }} />
-            <Tooltip
-              contentStyle={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8 }}
-            />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#6b7280" }} />
+            <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#6b7280" }} />
+            <Tooltip contentStyle={CHART_TOOLTIP} />
             <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
@@ -564,8 +564,8 @@ function BreakdownBars({ title, data }) {
 function EmptyBreakdown({ title }) {
   return (
     <div>
-      <h3 className="mb-2 text-sm font-medium text-slate-300">{title}</h3>
-      <p className="text-xs text-slate-500">No data</p>
+      <h3 className="mb-2 text-sm font-medium text-gray-700">{title}</h3>
+      <p className="text-xs text-gray-400">No data</p>
     </div>
   );
 }

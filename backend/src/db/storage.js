@@ -13,7 +13,7 @@ const fs = require("fs").promises;
 const path = require("path");
 const crypto = require("crypto");
 
-const DEFAULT_DATA_DIR = path.join(__dirname, "..", "data");
+const DEFAULT_DATA_DIR = path.join(__dirname, "..", "..", "data");
 
 /**
  * Resolve the JSON store file. `DATA_FILE` makes tests (and container mounts)
